@@ -1,12 +1,14 @@
 package com.cherish.cdsnapp;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 
@@ -114,6 +116,15 @@ public class MainFragment extends Fragment implements XListView.IXListViewListen
             onRefresh();
             isFirstIn = false;
         }
+        mXListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                NewsItem newsItem = mDatas.get(position-1);
+                Intent intent = new Intent(getActivity(),NewsContentActivity.class);
+                intent.putExtra("url", newsItem.getLink());
+                startActivity(intent);
+            }
+        });
     }
 
 
