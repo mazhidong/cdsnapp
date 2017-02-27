@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@android:color/holo_blue_dark">
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/biz_navigation_tab_news_pressed"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的CDSN"
+        android:textSize="25sp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/textView"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold"/>
+</LinearLayout>
