@@ -8,8 +8,7 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:src="@drawable/biz_navigation_tab_news_pressed"
-        android:layout_marginLeft="10dp"
-        android:onClick="textClick"/>
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:layout_width="match_parent"

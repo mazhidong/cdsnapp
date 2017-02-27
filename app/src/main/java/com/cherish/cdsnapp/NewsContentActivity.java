@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -16,8 +17,9 @@ import java.util.List;
 
 import me.maxwin.view.XListView;
 
-public class NewsContentActivity extends Activity implements XListView.IXListViewListener{
-    private XListView mListView;
+public class NewsContentActivity extends Activity{
+    //private XListView mListView;
+    private ListView mListView;
 
     /**
      * 该页面的url
@@ -42,39 +44,20 @@ public class NewsContentActivity extends Activity implements XListView.IXListVie
 
         mAdapter = new NewContentAdapter(this);
 
-        mListView = (XListView) findViewById(R.id.id_listview);
+        //mListView = (XListView) findViewById(R.id.id_listview);
+        mListView = (ListView) findViewById(R.id.id_listview);
         mProgressBar = (ProgressBar) findViewById(R.id.id_newsContentPro);
 
         mListView.setAdapter(mAdapter);
-        mListView.setPullLoadEnable(true);
-        mListView.setXListViewListener(this);
+        //mListView.setPullLoadEnable(true);
+        //mListView.setXListViewListener(this);
 
         mProgressBar.setVisibility(View.VISIBLE);
-        onRefresh();
-       // new LoadDataTask().execute();
-       /* List<News> list = null;
-        try {
-            list = newsDto.getNews(url);
-            for (News news : list) {
-                System.out.println(news);
-
-            }
-        } catch (CommonException e) {
-            e.printStackTrace();
-            System.out.println("123");
-        }*/
-
-    }
-
-    @Override
-    public void onRefresh() {
+        //onRefresh();
         new LoadDataTask().execute();
-    }
-
-    @Override
-    public void onLoadMore() {
 
     }
+
 
     class LoadDataTask extends AsyncTask<Void,Void,Void> {
         @Override
@@ -82,12 +65,7 @@ public class NewsContentActivity extends Activity implements XListView.IXListVie
             try
             {
                 //NewsDto mNewsDto = newsDto.getNews(url);
-                List<News> list = newsDto.getNews(url);
-                //System.out.println(mNewsDto.getNewses().size());
-                for (News news : list) {
-                    System.out.println(news);
-
-                }
+                List<News> list = newsDto.getNewsMobile(url);
                 //mDatas = mNewsDto.getNewses();
                 mDatas = list;
             } catch (CommonException e)
