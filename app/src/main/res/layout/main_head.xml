@@ -8,12 +8,13 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:src="@drawable/biz_navigation_tab_news_pressed"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:onClick="copyright"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="我的CDSN"
+        android:text="CDSN"
         android:textSize="25sp"
         android:layout_marginLeft="10dp"
         android:id="@+id/textView"

@@ -1,10 +1,12 @@
 package com.cherish.cdsnapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -56,6 +58,21 @@ public class NewsContentActivity extends Activity{
         //onRefresh();
         new LoadDataTask().execute();
 
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+
+                News news = mDatas.get(position);
+                String imageLink = news.getImageLink();
+                //Toast.makeText(NewContentActivity.this, imageLink, 1).show();
+                Intent intent = new Intent(NewsContentActivity.this,ImageShowActivity.class);
+                intent.putExtra("url", imageLink);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -97,6 +114,12 @@ public class NewsContentActivity extends Activity{
         finish();
     }
 
+
+    public void copyright(View view)
+    {
+        Intent intent = new Intent(this,copyrightActivity.class);
+        startActivity(intent);
+    }
 
 
 }

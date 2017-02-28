@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cherish.cdsnapp.Until.Logger;
 import com.cherish.cdsnapp.bean.News;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -101,7 +102,7 @@ public class NewContentAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         News news = mDatas.get(position); // 获取当前项数据
 
-        Log.e("xxx", news.toString());
+        Logger.e( news.toString());
 
         ViewHolder holder = null;
         if (null == convertView)
